@@ -62,15 +62,14 @@ int main(){
         system("cls");
     }
 
-    if (acertos=tam)
+    if (acertos==tam)
     {
-        cout<<"\n\n\n#########################################\nVOCÊ VENCEU!!!\n#########################################\n\n";
+        cout<<"\n\n\n###############\nVOCÊ VENCEU!!!\n###############\n\n";
     } else {
         cout << "\n\n\n#########################################\nVOCÊ PERDEU!!!\n#########################################\n\n";
+    return 0;
     }
 
     system("pause");
-
-    return 0;
 
 }
