@@ -1,9 +1,7 @@
 #include <iostream>
-#include <stdlib.h>
 using namespace std;
-
-int main(){
-
+int main(){ 
+ 
     char palavra[30], letra [1], secreta[30];
     int tam, i, chances, acertos;
     bool acerto=false;
@@ -25,14 +23,14 @@ int main(){
         i++;
         tam++;
     }
-    
+
 
     for (i = 0; i < 30; i++)
     {
         secreta[i]='_';
     }
-    
-    while ((chances > 0) && (acerto < tam) )
+
+    while ((chances > 0) && (acertos < tam) )
     {
         cout<<"chances restantes: " << chances << "\n\n";
         cout<< "palavra secreta: ";
@@ -62,9 +60,9 @@ int main(){
         system("cls");
     }
 
-    if (acertos=tam)
+    if (acertos==tam)
     {
-        cout<<"\n\n\n#########################################\nVOCÊ VENCEU!!!\n#########################################\n\n";
+        cout<<"\n\n\n###############\nVOCÊ VENCEU!!!\n###############\n\n";
     } else {
         cout << "\n\n\n#########################################\nVOCÊ PERDEU!!!\n#########################################\n\n";
     }
@@ -72,5 +70,4 @@ int main(){
     system("pause");
 
     return 0;
-
 }
