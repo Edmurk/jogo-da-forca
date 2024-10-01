@@ -6,13 +6,16 @@ int main(){
     int tam, i, chances, acertos;
     bool acerto=false;
 
-    chances=6;
     tam=0;
     i=0;
     acerto=false;
     acertos=0;
 
     cout<<"\n\n\n#########################################\nFALE PARA O SEU AMIGO TAMPAR OS OLHOS!!!\n#########################################\n\n";
+
+    cout << "Insira o numero de chances: ";
+        cin >> chances;
+
     cout<<"digite a palavra: ";
         cin>>palavra;
         system("cls");
@@ -62,9 +65,9 @@ int main(){
 
     if (acertos==tam)
     {
-        cout<<"\n\n\n###############\nVOCÊ VENCEU!!!\n###############\n\n";
+        cout<<"\n\n\n###############\nVOCE VENCEU!!!\n###############\n\n";
     } else {
-        cout << "\n\n\n#########################################\nVOCÊ PERDEU!!!\n#########################################\n\n\n";
+        cout << "\n\n\n###############\nVOCE PERDEU!!!\n###############\n\n\n";
     }
 
     system("pause");
