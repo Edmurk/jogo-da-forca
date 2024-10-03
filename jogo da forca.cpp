@@ -1,76 +1,131 @@
 #include <iostream>
 using namespace std;
+
+void desenhar_forca(int chances) {
+    switch(chances) {
+        case 6:
+            cout << "  _______" << endl;
+            cout << " |/      |" << endl;
+            cout << " |       " << endl;
+            cout << " |       " << endl;
+            cout << " |       " << endl;
+            cout << " |       " << endl;
+            break;
+        case 5:
+            cout << "  _______" << endl;
+            cout << " |/      |" << endl;
+            cout << " |      (_)" << endl;
+            cout << " |       " << endl;
+            cout << " |       " << endl;
+            cout << " |       " << endl;
+            break;
+        case 4:
+            cout << "  _______" << endl;
+            cout << " |/      |" << endl;
+            cout << " |      (_)" << endl;
+            cout << " |       |" << endl;
+            cout << " |       |" << endl;
+            cout << " |       " << endl;
+            break;
+        case 3:
+            cout << "  _______" << endl;
+            cout << " |/      |" << endl;
+            cout << " |      (_)" << endl;
+            cout << " |      \\|" << endl;
+            cout << " |       |" << endl;
+            cout << " |       " << endl;
+            break;
+        case 2:
+            cout << "  _______" << endl;
+            cout << " |/      |" << endl;
+            cout << " |      (_)" << endl;
+            cout << " |      \\|/" << endl;
+            cout << " |       |" << endl;
+            cout << " |       " << endl;
+            break;
+        case 1:
+            cout << "  _______" << endl;
+            cout << " |/      |" << endl;
+            cout << " |      (_)" << endl;
+            cout << " |      \\|/" << endl;
+            cout << " |       |" << endl;
+            cout << " |      /" << endl;
+            break;
+        case 0:
+            cout << "  _______" << endl;
+            cout << " |/      |" << endl;
+            cout << " |      (_)" << endl;
+            cout << " |      \\|/" << endl;
+            cout << " |       |" << endl;
+            cout << " |      / \\" << endl;
+            break;
+    }
+}
+
 int main(){ 
- 
-    char palavra[30], letra [1], secreta[30];
+    char palavra[30], letra[1], secreta[30];
     int tam, i, chances, acertos;
-    bool acerto=false;
+    bool acerto = false;
 
-    tam=0;
-    i=0;
-    acerto=false;
-    acertos=0;
+    chances = 6;
+    tam = 0;
+    i = 0;
+    acerto = false;
+    acertos = 0;
 
-    cout<<"\n\n\n#########################################\nFALE PARA O SEU AMIGO TAMPAR OS OLHOS!!!\n#########################################\n\n";
+    cout << "\n\n\n#########################################\nFALE PARA O SEU AMIGO TAMPAR OS OLHOS!!!\n#########################################\n\n";
 
     cout << "Insira o numero de chances: ";
-        cin >> chances;
 
-    cout<<"digite a palavra: ";
-        cin>>palavra;
-        system("cls");
+    cout << "Digite a palavra: ";
+    cin >> palavra;
+    system("cls");
 
-
-    while (palavra[i] != '\0')
-    {
+    // Contando o tamanho da palavra
+    while (palavra[i] != '\0') {
         i++;
         tam++;
     }
 
-
-    for (i = 0; i < 30; i++)
-    {
-        secreta[i]='_';
+    // Inicializando a palavra secreta com '_'
+    for (i = 0; i < 30; i++) {
+        secreta[i] = '_';
     }
 
-    while ((chances > 0) && (acertos < tam) )
-    {
-        cout<<"chances restantes: " << chances << "\n\n";
-        cout<< "palavra secreta: ";
-        for (i = 0; i < tam; i++)
-        {
-            cout<< secreta[i];
+    while ((chances > 0) && (acertos < tam)) {
+        desenhar_forca(chances);  // Exibe a arte da forca correspondente às chances restantes
+        cout << "Chances restantes: " << chances << "\n\n";
+        cout << "Palavra secreta: ";
+        for (i = 0; i < tam; i++) {
+            cout << secreta[i] << " ";
         }
 
-        cout<<"\n\n digite uma letra: ";
-            cin>> letra[0];
+        cout << "\n\nDigite uma letra: ";
+        cin >> letra[0];
         
-        for (i = 0; i < tam; i++)
-        {
-            if (palavra[i] == letra[0])
-            {
-                acerto=true;
+        acerto = false;
+        for (i = 0; i < tam; i++) {
+            if (palavra[i] == letra[0]) {
+                acerto = true;
                 secreta[i] = palavra[i];
                 acertos++;
             }
         }
 
-        if (!acerto)
-        {
+        if (!acerto) {
             chances--;
         }
-        acerto=false;
+
         system("cls");
     }
 
-    if (acertos==tam)
-    {
-        cout<<"\n\n\n###############\nVOCE VENCEU!!!\n###############\n\n";
+    if (acertos == tam) {
+        cout << "\n\n\n###############\nVOCE VENCEU!!!\n###############\n\n";
     } else {
+        desenhar_forca(0);  // Exibe o estágio final da forca
         cout << "\n\n\n###############\nVOCE PERDEU!!!\n###############\n\n\n";
     }
 
     system("pause");
-
     return 0;
 }
