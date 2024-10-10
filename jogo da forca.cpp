@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 using namespace std;
 
 void desenhar_forca(int chances) {
@@ -63,7 +64,8 @@ void desenhar_forca(int chances) {
 }
 
 int main(){ 
-    char palavra[30], letra[1], secreta[30];
+    string palavra;
+    char letra[1], secreta[30];
     int tam, i, chances, acertos;
     bool acerto = false;
 
@@ -75,25 +77,22 @@ int main(){
 
     cout << "\n\n\n#########################################\nFALE PARA O SEU AMIGO TAMPAR OS OLHOS!!!\n#########################################\n\n";
 
-    cout << "Insira o numero de chances: ";
-
-    cout << "Digite a palavra: ";
-    cin >> palavra;
+    cout << "Digite a palavra ou frase: ";
+    getline(cin, palavra); 
     system("cls");
 
-    // Contando o tamanho da palavra
-    while (palavra[i] != '\0') {
-        i++;
-        tam++;
-    }
+    tam = palavra.length();
 
-    // Inicializando a palavra secreta com '_'
-    for (i = 0; i < 30; i++) {
-        secreta[i] = '_';
+    for (i = 0; i < tam; i++) {
+        if (palavra[i] == ' ') {
+            secreta[i] = ' ';
+        } else {
+            secreta[i] = '_';
+        }
     }
 
     while ((chances > 0) && (acertos < tam)) {
-        desenhar_forca(chances);  // Exibe a arte da forca correspondente às chances restantes
+        desenhar_forca(chances);
         cout << "Chances restantes: " << chances << "\n\n";
         cout << "Palavra secreta: ";
         for (i = 0; i < tam; i++) {
@@ -122,7 +121,7 @@ int main(){
     if (acertos == tam) {
         cout << "\n\n\n###############\nVOCE VENCEU!!!\n###############\n\n";
     } else {
-        desenhar_forca(0);  // Exibe o estágio final da forca
+        desenhar_forca(0);
         cout << "\n\n\n###############\nVOCE PERDEU!!!\n###############\n\n\n";
     }
 
