@@ -68,6 +68,7 @@ int main(){
     char letra[1], secreta[30];
     int tam, i, chances, acertos;
     bool acerto = false;
+    char opcao;
 
     chances = 6;
     tam = 0;
@@ -77,6 +78,7 @@ int main(){
 
     cout << "\n\n\n#########################################\nFALE PARA O SEU AMIGO TAMPAR OS OLHOS!!!\n#########################################\n\n";
 
+    do{
     cout << "Digite a palavra ou frase: ";
     getline(cin, palavra); 
     system("cls");
@@ -101,6 +103,7 @@ int main(){
 
         cout << "\n\nDigite uma letra: ";
         cin >> letra[0];
+        cin.ignore();
         
         acerto = false;
         for (i = 0; i < tam; i++) {
@@ -120,11 +123,19 @@ int main(){
 
     if (acertos == tam) {
         cout << "\n\n\n###############\nVOCE VENCEU!!!\n###############\n\n";
+            system("pause");
     } else {
         desenhar_forca(0);
         cout << "\n\n\n###############\nVOCE PERDEU!!!\n###############\n\n\n";
+            system("pause");
     }
+    
+    system("cls");
+    cout << "deseja jogar novamente?[S/N]";
+        cin >> opcao;
+        cin.ignore();
 
-    system("pause");
+    } while (opcao == 'n' || opcao == 'N');
+    
     return 0;
 }
